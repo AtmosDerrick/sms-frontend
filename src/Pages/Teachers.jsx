@@ -213,21 +213,15 @@ function Teachers() {
                 className="px-6 py-[4px] border-[2px] border-primary text-primary rounded-3xl"
                 value={classroom}
                 onChange={filterStudent}>
-                <option value="">Select Class</option>
-
-                <option value="krech">KRECH</option>
                 <optgroup label="Primary">
-                  <option value="Primary 1">Primary 1</option>
-                  <option value="Primary 2">Primary 2</option>
-                  <option value="Primary 3">Primary 3</option>
-                  <option value="Primary 4">Primary 4</option>
-                  <option value="Primary 5">Primary 5</option>
-                  <option value="Primary 6">Primary 6</option>
-                </optgroup>
-                <optgroup label="J.H.S">
-                  <option value="J.H.S 1">J.H.S 1</option>
-                  <option value="J.H.S 2">J.H.S 2</option>
-                  <option value="J.H.S 3">J.H.S 3</option>
+                  <option value="">Select Department</option>
+                  <option value="senior staff">Staffs</option>
+
+                  <option value="Non-Teaching Staff">
+                    Non Teaching Staffs
+                  </option>
+                  <option value="Teaching Staff">Teaching Staffs</option>
+                  <option value="Kitchen Staff">Kitchen Staff</option>
                 </optgroup>
               </select>
             </div>
@@ -311,7 +305,7 @@ function Teachers() {
                 .map((student, index) => (
                   <tr
                     key={index}
-                    className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}>
+                    className={index % 2 === 0 ? "bg-white " : "bg-gray-100 "}>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {student.name}
                     </td>

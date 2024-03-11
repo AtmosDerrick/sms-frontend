@@ -32,7 +32,7 @@ function Parents() {
     {
       id: 2,
       name: "Parent 2",
-      students: ["David", "Eve"],
+      students: ["David"],
       phoneNumber: "234-567-8901",
       email: "parent2@example.com",
       location: "Location 2",
@@ -162,23 +162,30 @@ function Parents() {
                   icon={faAdd}
                   className="text-lg text-white pr-[2px]"
                 />
-                Add Teacher
+                Add Parent
               </button>
             </div>
+
             <div className="w-full">
               <select
                 className="px-6 py-[4px] border-[2px] border-primary text-primary rounded-3xl"
                 value={classroom}
                 onChange={filterStudent}>
-                <optgroup label="Primary">
-                  <option value="">Select Department</option>
-                  <option value="senior staff">Staffs</option>
+                <option value="">Select Class</option>
 
-                  <option value="Non-Teaching Staff">
-                    Non Teaching Staffs
-                  </option>
-                  <option value="Teaching Staff">Teaching Staffs</option>
-                  <option value="Kitchen Staff">Kitchen Staff</option>
+                <option value="krech">KRECH</option>
+                <optgroup label="Primary">
+                  <option value="Primary 1">Primary 1</option>
+                  <option value="Primary 2">Primary 2</option>
+                  <option value="Primary 3">Primary 3</option>
+                  <option value="Primary 4">Primary 4</option>
+                  <option value="Primary 5">Primary 5</option>
+                  <option value="Primary 6">Primary 6</option>
+                </optgroup>
+                <optgroup label="J.H.S">
+                  <option value="J.H.S 1">J.H.S 1</option>
+                  <option value="J.H.S 2">J.H.S 2</option>
+                  <option value="J.H.S 3">J.H.S 3</option>
                 </optgroup>
               </select>
             </div>
@@ -261,41 +268,38 @@ function Parents() {
                 .map((student, index) => (
                   <tr
                     key={index}
-                    className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    className={
+                      index % 2 === 0
+                        ? "bg-white text-sm"
+                        : "bg-gray-100 text-sm"
+                    }>
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.name}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.students.map((item) => (
                         <div>{item}</div>
                       ))}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.phoneNumber}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.email}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.location}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.contact}
                     </td>
-                    <td className="flex justify-start items-center h-24 gap-x-8  ">
-                      <div>
-                        <FontAwesomeIcon
-                          icon={faPhone}
-                          className="text-primary text-xl"
-                        />
-                      </div>
-
-                      <div>
+                    <td className="flex justify-center items-center h-20  ">
+                      <button>
                         <FontAwesomeIcon
                           icon={faEnvelope}
-                          className="text-primary text-xl"
+                          className="text-orange-500 text-xl"
                         />
-                      </div>
+                      </button>
                     </td>
                   </tr>
                 ))}

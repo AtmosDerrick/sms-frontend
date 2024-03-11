@@ -1,4 +1,9 @@
-import { faExclamation, faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEdit,
+  faExclamation,
+  faPlus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import Piechart from "../components/Piechart";
@@ -54,13 +59,6 @@ function Dashboard() {
       date: "2022-03-02",
       notice:
         "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 3,
-      time: "12:00 PM",
-      date: "2022-03-03",
-      notice:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     },
   ];
 
@@ -155,7 +153,7 @@ function Dashboard() {
           </div>
           <BarChat />
         </div>
-        <div className="w-2/4 h-[50vh] bg-gradient-to-b  from-primary to-blue-500 rounded-2xl">
+        <div className="w-2/4 h-[50vh] bg-gradient-to-b  border-2 bg-primary rounded-2xl overflow-visible">
           <div className="p-4">
             <div className="flex justify-between">
               <h1 className=" text-white font-semibold">Notice Board</h1>
@@ -169,14 +167,32 @@ function Dashboard() {
             {notices.map((notice) => (
               <div
                 key={notice.id}
-                className="mb-2 border-b-[1px] py-2 bg-white mt-2 rounded-md p-2 shadow-md hover:shadow-xl transition-transform transform-gpu hover:scale-105">
-                <div className="flex justify-start gap-4 items-center">
+                className="mb-2 border-b-[1px] py-2 bg-gray-100 mt-2 rounded-md p-2 shadow-md hover:shadow-xl transition-transform transform-gpu ">
+                <div className="flex justify-start gap-4 items-center border-b-[1px] border-blue-100">
                   <h4 className="text-red-600 text-sm">{notice.date}</h4>{" "}
                   <h4 className="text-xs text-gray-800">{notice.time}</h4>
                 </div>
-                <p className="text-gray-900 text-xs italic">{notice.notice}</p>
+                <p className="text-gray-900 py-2 text-xs italic border-b-[1px] border-blue-100">
+                  {notice.notice}
+                </p>
+
+                <div className="flex justify-start gap-8 mt-2 items-center">
+                  <button className="hover:opacity-45">
+                    <FontAwesomeIcon
+                      icon={faEdit}
+                      className="text-lg text-red-500"
+                    />
+                  </button>
+                  <button className="hover:opacity-45">
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      className="text-lg text-blue-600"
+                    />
+                  </button>
+                </div>
               </div>
             ))}
+
             <div>
               <Modal
                 isOpen={modalIsOpen}

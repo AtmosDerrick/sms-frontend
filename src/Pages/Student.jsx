@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "../components/Sidebar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Link,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Navbar from "../components/Navbar";
 import { faAdd, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +18,8 @@ function Student() {
   const [classroom, setClassRoom] = useState("");
   const [studentss, setStudentss] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
+
+  const navigate = useNavigate();
   const studentsPerPage = 8;
   const pagesVisited = pageNumber * studentsPerPage;
 
@@ -341,7 +349,7 @@ function Student() {
 
           <div className="text-lg font-semibold">Students Record</div>
           <div className="flex justify-start items-center gap-6">
-            <div className="w-full">
+            <Link to={"/createstudent"} className="w-full">
               <button className="px-6 bg-primary text-white py-[4px] rounded-3xl">
                 <FontAwesomeIcon
                   icon={faAdd}
@@ -349,7 +357,7 @@ function Student() {
                 />
                 Add Student
               </button>
-            </div>
+            </Link>
             <div className="w-full">
               <select
                 className="px-6 py-[4px] border-[2px] border-primary text-primary rounded-3xl"
@@ -446,24 +454,31 @@ function Student() {
                 .slice(pagesVisited, pagesVisited + studentsPerPage)
                 .map((student, index) => (
                   <tr
+                    onClick={() => {
+                      navigate("/studentdetail/" + index);
+                    }}
                     key={index}
-                    className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    className={
+                      index % 2 === 0
+                        ? "bg-white hover:cursor-pointer hover:opacity-85"
+                        : "bg-gray-100 hover:cursor-pointer hover:opacity-85"
+                    }>
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.firstName}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.lastName}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.className}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {student.gender}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.role}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-2 whitespace-nowrap">
                       {student.admissionId}
                     </td>
                   </tr>

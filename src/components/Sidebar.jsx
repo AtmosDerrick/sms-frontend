@@ -173,23 +173,6 @@ function Sidebar(page) {
           <Link to="/dashboard" className={classes.container}>
             <div className={classes.iconsContainer}>
               <FontAwesomeIcon
-                icon={faClipboardUser}
-                className={classes.icons}
-              />
-            </div>
-            <div
-              to="/link"
-              className={
-                !openWide
-                  ? "text-base text-white"
-                  : "text-base text-white hidden"
-              }>
-              Attendance
-            </div>
-          </Link>
-          <Link to="/dashboard" className={classes.container}>
-            <div className={classes.iconsContainer}>
-              <FontAwesomeIcon
                 icon={faSheetPlastic}
                 className={classes.icons}
               />
