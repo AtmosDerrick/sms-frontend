@@ -2,6 +2,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function RegisterStudents() {
   const [formData, setFormData] = useState({
@@ -23,6 +24,8 @@ function RegisterStudents() {
       ...formData,
       [name]: value,
     });
+
+    
   };
 
   const handleFileChange = (e) => {

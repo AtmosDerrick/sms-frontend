@@ -9,6 +9,7 @@ import Teachers from "./Pages/Teachers";
 import Parents from "./Pages/Parents";
 import RegisterStudents from "./Pages/RegisterStudents";
 import StudentDetails from "./Pages/StudentDetails";
+import Account from "./Pages/Account";
 function App() {
   return (
     <Routes>
@@ -23,6 +24,7 @@ function App() {
 
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/parent" element={<Parents />} />
+        <Route path="/account" element={<Account />} />
       </Route>
     </Routes>
   );

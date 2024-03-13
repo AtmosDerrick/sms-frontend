@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/img/logo new gen.jpg";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -10,10 +11,19 @@ function Login() {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    navigate("/dashboard");
 
     // Add your sign-in logic here
-    if (username === "your_username" && password === "your_password") {
+    if (username !== "" && password !== "") {
+      axios
+        .post(`http://127.0.0.1:8000/auth/login/`, { username, password })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          navigate("/dashboard");
+        })
+        .catch((err) => {
+          console.log(err.data);
+        });
       setError("");
       console.log("Sign in successful");
       // Redirect or perform other actions upon successful sign-in

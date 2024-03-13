@@ -188,7 +188,7 @@ function Sidebar(page) {
             </div>
           </Link>
 
-          <Link to="/dashboard" className={classes.container}>
+          <Link to="/account" className={classes.container}>
             <div className={classes.iconsContainer}>
               <FontAwesomeIcon
                 icon={faFileInvoiceDollar}
@@ -196,7 +196,7 @@ function Sidebar(page) {
               />
             </div>
             <div
-              to="/link"
+              to="/account"
               className={
                 !openWide
                   ? "text-base text-white"

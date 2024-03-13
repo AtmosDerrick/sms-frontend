@@ -79,8 +79,8 @@ function Dashboard() {
 
   return (
     <div>
-      <div className="w-full flex justify-between gap-4 my-4 px-4 transition-all duration-500">
-        <div className="w-full h-[250px] border-t-8 bg-white border-t-red-600 rounded-lg shadow-lg overflow-hidden">
+      <div className="w-full flex justify-between gap-16 my-4 px-4 transition-all duration-500">
+        <div className="w-full h-[250px] border-t-8 bg-white border-t-red-600 rounded-lg shadow-sm overflow-hidden">
           {
             <div className="mx-2 flex justify-between pt-2">
               <div>
@@ -98,7 +98,7 @@ function Dashboard() {
             <Piechart />
           </div>
         </div>
-        <div className="w-full h-[250px] border-t-8 bg-white border-t-blue-600 rounded-lg shadow-lg">
+        <div className="w-full h-[250px] border-t-8 bg-white border-t-blue-600 rounded-lg shadow-sm">
           {
             <div className="mx-2 flex justify-between pt-2">
               <div>
@@ -116,7 +116,7 @@ function Dashboard() {
             <LineChat />
           </div>
         </div>
-        <div className="w-full h-[250px] border-t-8 bg-white border-t-green-600 rounded-lg shadow-lg">
+        <div className="w-full h-[250px] border-t-8 bg-white border-t-green-600 rounded-lg shadow-sm ">
           <div className="mx-2 flex justify-between pt-2">
             <div>
               <h3 className="font-mediumbold text-gray-700">
@@ -153,14 +153,14 @@ function Dashboard() {
           </div>
           <BarChat />
         </div>
-        <div className="w-2/4 h-[50vh] bg-gradient-to-b  border-2 bg-primary rounded-2xl overflow-visible">
+        <div className="w-2/4 h-[50vh]  border-2 border-gray-300 bg-white rounded-2xl overflow-visible">
           <div className="p-4">
             <div className="flex justify-between">
               <h1 className=" text-white font-semibold">Notice Board</h1>
 
               <button
                 onClick={openModal}
-                className="w-8 h-8 rounded-full bg-white flex justify-center items-center ">
+                className="w-8 h-8 border-2 border-primary rounded-full bg-white flex justify-center items-center ">
                 <FontAwesomeIcon icon={faPlus} className="text-primary" />
               </button>
             </div>
